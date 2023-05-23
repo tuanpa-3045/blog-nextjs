@@ -24,7 +24,7 @@ async function handler(req, res) {
 
     let client;
 
-    const connectionString = process.env.URL_MONGODB;
+    const connectionString = process.env.NEXT_PUBLIC_URL_MONGODB;
 
     console.log(connectionString);
 

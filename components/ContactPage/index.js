@@ -4,7 +4,7 @@ import { addContact } from '../../stores/contactSlice';
 
 import classes from './contact.module.css';
 
-function Contact() {
+function ContactPage() {
   const dispatch = useDispatch();
 
   const [userInfo, setUserInfo] = useState({
@@ -111,4 +111,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default ContactPage;

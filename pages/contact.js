@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import Head from 'next/head';
 
 import Header from '../components/Header';
-import ContactForm from '../components/Contact';
+import ContactForm from '../components/ContactPage';
 
 function ContactPage() {
   return (
