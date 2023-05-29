@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+*::selection {
+  background-color:burlywood;
+  color: #000;
+}
+
 body {
   font-family: 'Oswald', 'Roboto', sans-serif;
 }
