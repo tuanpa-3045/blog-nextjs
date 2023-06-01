@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import * as services from '../services'
+import { setFlashMessage } from './notificationSlice';
+import { flashMessageStatus } from '../utils/constants';
 
 const initialState = {
   loading: false,
@@ -12,8 +14,17 @@ export const addContact = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       await services.addContact(data);
+      dispatch(setFlashMessage({
+        message: 'Message sent successfully!',
+        status: flashMessageStatus.SUCCESS,
+        title: 'Success!',
+      }))
     } catch (error) {
-      console.log(error);
+      dispatch(setFlashMessage({
+        message: error.message,
+        status: flashMessageStatus.ERROR,
+        title: 'Error!',
+      }))
       return rejectWithValue({});
     }
   }
@@ -21,11 +32,10 @@ export const addContact = createAsyncThunk(
 
 export const getListContact = createAsyncThunk(
   'contact/addContact',
-  async (data, { rejectWithValue }) => {
+  async (data, { rejectWithValue, dispatch }) => {
     try {
       await services.addContact(data);
     } catch (error) {
-      console.log(error);
       return rejectWithValue({});
     }
   }
